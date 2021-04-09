@@ -10,9 +10,9 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // Setup code that might create autoreleased objects goes here.
-        __block int a = 10;
+        __block int a = 30;
         void (^mallocBlock)(void) = ^void { a++; };
-        NSLog(@"MallocBlock is %@", mallocBlock);
+        NSLog(@"mallBlock = %@", mallocBlock);
         
         NSLog(@"Hello, World!");
     }
