@@ -274,11 +274,11 @@ struct Block_descriptor_small {
 };
 
 struct Block_layout {
-    void * __ptrauth_objc_isa_pointer isa;
-    volatile int32_t flags; // contains ref count
-    int32_t reserved;
-    BlockInvokeFunction invoke;
-    struct Block_descriptor_1 *descriptor;
+    void * __ptrauth_objc_isa_pointer isa; //指向所属类的指针，也就是block的类型
+    volatile int32_t flags; // contains ref count //标志变量，在实现block的内部操作时会用到
+    int32_t reserved; //保留变量
+    BlockInvokeFunction invoke;  //block执行时调用的函数指针，block内部的执行代码都在这个函数中
+    struct Block_descriptor_1 *descriptor; //block的详细描述，包含 copy/dispose 函数，处理block引用外部变量时使用
     // imported variables
 };
 
